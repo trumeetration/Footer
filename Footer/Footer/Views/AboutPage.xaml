@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Footer.Views.AboutPage"
+             xmlns:vm="clr-namespace:Footer.ViewModels"
+             xmlns:footer="clr-namespace:Footer;assembly=Footer"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Orientation="Vertical">
+        <footer:CustomFrame CornerRadius="0,0,20,20"
+               Background="#01939A">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Text="Footer"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="64"
+                       TextColor="#ffffff"/>
+                <Label Grid.Row="1"
+                       Text="Track your activity"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="24"
+                       TextColor="#ffffff"
+                       TextDecorations="Underline"
+                       Margin="0,0,0,20"/>
+            </Grid>
+        </footer:CustomFrame>
+        <Frame
+            CornerRadius="30"
+            Margin="50"
+            Background="#C4C4C4"
+            Opacity="0.28">
+            <StackLayout Orientation="Vertical">
+                <Entry Margin="10,20" Placeholder="login" PlaceholderColor="#000000" FontSize="22"></Entry>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
