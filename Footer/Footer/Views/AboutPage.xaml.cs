@@ -9,6 +9,7 @@ namespace Footer.Views
     {
         public AboutPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
     }
