@@ -44,38 +44,115 @@
             CornerRadius="30"
             Margin="50,10"
             Background="#EAEAEA">
-            <StackLayout Orientation="Vertical"
+            <StackLayout>
+                <StackLayout Orientation="Vertical" IsVisible="{Binding IsLoginVisible}"
                          Padding="10,20,10,0">
-                <Entry Placeholder="login"
+                    <Entry Placeholder="login1"
                        PlaceholderColor="#969696"
                        FontSize="22" />
-                <Entry Placeholder="password"
+                    <Entry Placeholder="password"
                        PlaceholderColor="#969696"
                        FontSize="22" />
-                <Button BackgroundColor="#FF7600"
+                    <Button BackgroundColor="#FF7600"
                         HeightRequest="40"
                         Margin="0,20, 0, 0"
                         CornerRadius="10"
                         Text="Login"
                         FontSize="20"
                         Padding="0,0,0,0"
+                        Command="{Binding ShowLoginForm}"
                         />
-                <Button BackgroundColor="#006064"
+                    <Button BackgroundColor="#006064"
                         HeightRequest="40"
                         Margin="0,10, 0, 0"
                         CornerRadius="10"
                         Text="I am a new user"
                         FontSize="20"
                         Padding="0,0,0,0"
+                        Command="{Binding ShowRegisterForm}"
                 />
-                <Button BackgroundColor="#006064"
+                    <Button BackgroundColor="#006064"
                         HeightRequest="40"
                         Margin="0,10, 0, 0"
                         CornerRadius="10"
                         Text="I forgot my password"
                         FontSize="20"
                         Padding="0,0,0,0"
+                        Command="{Binding ShowRecoveryForm}"
                 />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" IsVisible="{Binding IsRegisterVisible}"
+                         Padding="10,20,10,0">
+                    <Entry Placeholder="login2"
+                       PlaceholderColor="#969696"
+                       FontSize="22" />
+                    <Entry Placeholder="password"
+                       PlaceholderColor="#969696"
+                       FontSize="22" />
+                    <Button BackgroundColor="#FF7600"
+                        HeightRequest="40"
+                        Margin="0,20, 0, 0"
+                        CornerRadius="10"
+                        Text="Login"
+                        FontSize="20"
+                        Padding="0,0,0,0"
+                        Command="{Binding ShowLoginForm}"
+                        />
+                    <Button BackgroundColor="#006064"
+                        HeightRequest="40"
+                        Margin="0,10, 0, 0"
+                        CornerRadius="10"
+                        Text="I am a new user"
+                        FontSize="20"
+                        Padding="0,0,0,0"
+                        Command="{Binding ShowRegisterForm}"
+                />
+                    <Button BackgroundColor="#006064"
+                        HeightRequest="40"
+                        Margin="0,10, 0, 0"
+                        CornerRadius="10"
+                        Text="I forgot my password"
+                        FontSize="20"
+                        Padding="0,0,0,0"
+                        Command="{Binding ShowRecoveryForm}"
+                />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" IsVisible="{Binding IsRecoveryVisible}"
+                         Padding="10,20,10,0">
+                    <Entry Placeholder="login3"
+                       PlaceholderColor="#969696"
+                       FontSize="22" />
+                    <Entry Placeholder="password"
+                       PlaceholderColor="#969696"
+                       FontSize="22" />
+                    <Button BackgroundColor="#FF7600"
+                        HeightRequest="40"
+                        Margin="0,20, 0, 0"
+                        CornerRadius="10"
+                        Text="Login"
+                        FontSize="20"
+                        Padding="0,0,0,0"
+                        Command="{Binding ShowLoginForm}"
+                        />
+                    <Button BackgroundColor="#006064"
+                        HeightRequest="40"
+                        Margin="0,10, 0, 0"
+                        CornerRadius="10"
+                        Text="I am a new user"
+                        FontSize="20"
+                        Padding="0,0,0,0"
+                        Command="{Binding ShowRegisterForm}"
+                />
+                    <Button BackgroundColor="#006064"
+                        HeightRequest="40"
+                        Margin="0,10, 0, 0"
+                        CornerRadius="10"
+                        Text="I forgot my password"
+                        FontSize="20"
+                        Padding="0,0,0,0"
+                        Command="{Binding ShowRecoveryForm}"
+                />
+                </StackLayout>
             </StackLayout>
         </Frame>
     </StackLayout>
