@@ -8,7 +8,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
-            <Style TargetType="Button">
+            <Color x:Key="MainBackgroundColor">#3EC1D3</Color>
+            <Color x:Key="MainButtonColor">#FF9A00</Color>
+            <Color x:Key="AnotherButtonColor">#3EC1D3</Color>
+            <!-- <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
@@ -26,6 +29,16 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
+            </Style> -->
+            <Style x:Key="ButtonConfirmStyle"  TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource MainButtonColor}"/>
+                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="ButtonAnotherStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource AnotherButtonColor}"/>
+                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="TextColor" Value="White"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

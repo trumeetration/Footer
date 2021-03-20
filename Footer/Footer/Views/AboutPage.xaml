@@ -4,12 +4,13 @@
              x:Class="Footer.Views.AboutPage"
              xmlns:vm="clr-namespace:Footer.ViewModels"
              xmlns:footer="clr-namespace:Footer;assembly=Footer"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
@@ -18,7 +19,7 @@
 
     <StackLayout Orientation="Vertical">
         <footer:CustomFrame CornerRadius="0,0,20,20"
-               Background="#01939A">
+               BackgroundColor="{StaticResource MainBackgroundColor}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120"></RowDefinition>
@@ -41,19 +42,25 @@
             </Grid>
         </footer:CustomFrame>
         <Frame
-            CornerRadius="30"
-            Margin="50,10"
-            Background="#EAEAEA">
+            CornerRadius="10"
+            Margin="30,10"
+            Background="Transparent"
+            VerticalOptions="FillAndExpand">
             <StackLayout>
                 <StackLayout Orientation="Vertical" IsVisible="{Binding IsLoginVisible}"
                          Padding="10,20,10,0">
-                    <Entry Placeholder="login1"
-                       PlaceholderColor="#969696"
-                       FontSize="22" />
+                    <Entry Placeholder="login"
+                           Margin="0, 20, 0, 20"
+                           PlaceholderColor="#969696"
+                           FontSize="22"
+                           HorizontalTextAlignment="Start"/>
                     <Entry Placeholder="password"
-                       PlaceholderColor="#969696"
-                       FontSize="22" />
-                    <Button BackgroundColor="#FF7600"
+                           Margin="0, 0, 0, 20"
+                           PlaceholderColor="#969696"
+                           FontSize="22"
+                           HorizontalTextAlignment="Start"/>
+                    <Button
+                        Style="{StaticResource ButtonConfirmStyle}"
                         HeightRequest="40"
                         Margin="0,20, 0, 0"
                         CornerRadius="10"
@@ -62,7 +69,8 @@
                         Padding="0,0,0,0"
                         Command="{Binding ShowLoginForm}"
                         />
-                    <Button BackgroundColor="#006064"
+                    <Button 
+                        Style="{StaticResource ButtonAnotherStyle}"
                         HeightRequest="40"
                         Margin="0,10, 0, 0"
                         CornerRadius="10"
@@ -70,8 +78,9 @@
                         FontSize="20"
                         Padding="0,0,0,0"
                         Command="{Binding ShowRegisterForm}"
-                />
-                    <Button BackgroundColor="#006064"
+                        />
+                    <Button 
+                        Style="{StaticResource ButtonAnotherStyle}"
                         HeightRequest="40"
                         Margin="0,10, 0, 0"
                         CornerRadius="10"
@@ -79,82 +88,76 @@
                         FontSize="20"
                         Padding="0,0,0,0"
                         Command="{Binding ShowRecoveryForm}"
-                />
+                        />
                 </StackLayout>
                 <StackLayout Orientation="Vertical" IsVisible="{Binding IsRegisterVisible}"
                          Padding="10,20,10,0">
-                    <Entry Placeholder="login2"
+                    <Entry Placeholder="login"
                        PlaceholderColor="#969696"
-                       FontSize="22" />
+                       FontSize="22"
+                       HorizontalTextAlignment="Start"/>
                     <Entry Placeholder="password"
                        PlaceholderColor="#969696"
-                       FontSize="22" />
-                    <Button BackgroundColor="#FF7600"
+                       FontSize="22"
+                       HorizontalTextAlignment="Start"/>
+                    <Entry Placeholder="confirm password"
+                           PlaceholderColor="#969696"
+                           FontSize="22"
+                           HorizontalTextAlignment="Start"/>
+                    <Button 
+                        Style="{StaticResource ButtonConfirmStyle}"
                         HeightRequest="40"
                         Margin="0,20, 0, 0"
                         CornerRadius="10"
-                        Text="Login"
+                        Text="Sign Up"
                         FontSize="20"
                         Padding="0,0,0,0"
                         Command="{Binding ShowLoginForm}"
                         />
-                    <Button BackgroundColor="#006064"
+                    <Button
+                        Style="{StaticResource ButtonAnotherStyle}"
                         HeightRequest="40"
                         Margin="0,10, 0, 0"
                         CornerRadius="10"
-                        Text="I am a new user"
+                        Text="Back"
                         FontSize="20"
                         Padding="0,0,0,0"
-                        Command="{Binding ShowRegisterForm}"
-                />
-                    <Button BackgroundColor="#006064"
-                        HeightRequest="40"
-                        Margin="0,10, 0, 0"
-                        CornerRadius="10"
-                        Text="I forgot my password"
-                        FontSize="20"
-                        Padding="0,0,0,0"
-                        Command="{Binding ShowRecoveryForm}"
-                />
+                        Command="{Binding ShowLoginForm}"
+                    />
                 </StackLayout>
                 <StackLayout Orientation="Vertical" IsVisible="{Binding IsRecoveryVisible}"
                          Padding="10,20,10,0">
-                    <Entry Placeholder="login3"
+                    <Entry Placeholder="email"
                        PlaceholderColor="#969696"
-                       FontSize="22" />
-                    <Entry Placeholder="password"
-                       PlaceholderColor="#969696"
-                       FontSize="22" />
-                    <Button BackgroundColor="#FF7600"
+                       FontSize="22"
+                       HorizontalTextAlignment="Start"/>
+                    <Button
+                        Style="{StaticResource ButtonConfirmStyle}"
                         HeightRequest="40"
                         Margin="0,20, 0, 0"
                         CornerRadius="10"
-                        Text="Login"
+                        Text="Confirm"
                         FontSize="20"
                         Padding="0,0,0,0"
                         Command="{Binding ShowLoginForm}"
                         />
-                    <Button BackgroundColor="#006064"
+                    <Button
+                        Style="{StaticResource ButtonAnotherStyle}"
                         HeightRequest="40"
-                        Margin="0,10, 0, 0"
+                        Margin="0,20, 0, 0"
                         CornerRadius="10"
-                        Text="I am a new user"
+                        Text="Back"
                         FontSize="20"
                         Padding="0,0,0,0"
-                        Command="{Binding ShowRegisterForm}"
-                />
-                    <Button BackgroundColor="#006064"
-                        HeightRequest="40"
-                        Margin="0,10, 0, 0"
-                        CornerRadius="10"
-                        Text="I forgot my password"
-                        FontSize="20"
-                        Padding="0,0,0,0"
-                        Command="{Binding ShowRecoveryForm}"
-                />
+                        Command="{Binding ShowLoginForm}"
+                        />
                 </StackLayout>
             </StackLayout>
         </Frame>
+        <footer:CustomFrame CornerRadius="20,20,0,0"
+                            BackgroundColor="{StaticResource MainBackgroundColor}" VerticalOptions="End"
+                            HeightRequest="25">
+        </footer:CustomFrame>
     </StackLayout>
 
 </ContentPage>

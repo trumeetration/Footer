@@ -14,7 +14,7 @@ namespace Footer.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Window.SetStatusBarColor(Color.ParseColor("#01939A"));
+            Window.SetStatusBarColor(Color.ParseColor("#3EC1D3"));
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
