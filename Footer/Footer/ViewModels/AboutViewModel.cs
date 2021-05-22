@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using Footer.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -12,12 +13,10 @@ namespace Footer.ViewModels
         private bool _isrecoveryvisible = false;
         public AboutViewModel()
         {
-            Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            Title = "Login";
         }
 
-
-        public ICommand OpenWebCommand { get; }
+        
         public bool IsLoginVisible
         {
             get => _isloginvisible;
@@ -81,6 +80,14 @@ namespace Footer.ViewModels
             {
                 IsRecoveryVisible = true;
                 IsLoginVisible = IsRegisterVisible = false;
+            });
+        }
+
+        public  ICommand LoginCommand
+        {
+            get => new Command(() =>
+            {
+                App.Current.MainPage.Navigation.PushModalAsync(new MainPage());
             });
         }
     }

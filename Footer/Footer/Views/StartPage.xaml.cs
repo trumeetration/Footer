@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 
 namespace Footer.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class StartPage : ContentPage
     {
-        public AboutPage()
+        public StartPage()
         {
             InitializeComponent();
         }
