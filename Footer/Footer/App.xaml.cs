@@ -12,6 +12,7 @@ namespace Footer
         public App()
         {
             InitializeComponent();
+            Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }

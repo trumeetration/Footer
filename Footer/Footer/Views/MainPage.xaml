@@ -5,7 +5,8 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:views="clr-namespace:Footer.Views;assembly=Footer"
              xmlns:footer="clr-namespace:Footer;assembly=Footer"
-             xmlns:models="clr-namespace:Footer.Models;assembly=Footer">
+             xmlns:models="clr-namespace:Footer.Models;assembly=Footer"
+             xmlns:sh="http://sharpnado.com">
     <ContentPage.Resources>
         <ControlTemplate
             x:Key="TabItemTemplate">
@@ -25,28 +26,23 @@
         <ControlTemplate
             x:Key="BasketTabItemTemplate">
             <Grid>
-                <ImageButton
-                    InputTransparent="True"
-                    Source="{TemplateBinding CurrentIcon}"
-                    Padding="24"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Start"
-                    x:Name="BagBtn"
-                    BackgroundColor="#FF7600"
-                    HeightRequest="72"
-                    WidthRequest="72">
-                    <ImageButton.CornerRadius>
-                        <OnPlatform
-                            x:TypeArguments="x:Int32">
-                            <On
-                                Platform="iOS, UWP"
-                                Value="36" />
-                            <On
-                                Platform="Android"
-                                Value="60" />
-                        </OnPlatform>
-                    </ImageButton.CornerRadius>
-                </ImageButton>
+                <sh:Shadows CornerRadius="60"
+                            Shades="{sh:SingleShade Offset='0,-2',
+                                                        Opacity=0.7,
+                     Color=#FF7600}">
+                    <ImageButton
+                        InputTransparent="True"
+                        Source="{TemplateBinding CurrentIcon}"
+                        Padding="24"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        x:Name="BagBtn"
+                        BackgroundColor="#FF7600"
+                        HeightRequest="72"
+                        WidthRequest="72"
+                        CornerRadius="60">
+                    </ImageButton>
+                </sh:Shadows>
             </Grid>
         </ControlTemplate>
         <Style
@@ -93,9 +89,14 @@
                 Style="{StaticResource CustomTabStyle}"
                 IsClippedToBounds="False">
                 <xct:TabView.TabStripBackgroundView>
-                    <BoxView
-                        Color="{StaticResource MainBackgroundColor}"
-                        CornerRadius="20,20,0,0"></BoxView>
+                    <sh:Shadows CornerRadius="30"
+                                Shades="{sh:SingleShade Offset='0,-5',
+                                                        Opacity=0.7,
+                                                        Color={StaticResource MainBackgroundColor}}">
+                        <BoxView
+                            Color="{StaticResource MainBackgroundColor}"
+                            CornerRadius="20,20,0,0"></BoxView>
+                    </sh:Shadows>
                 </xct:TabView.TabStripBackgroundView>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
@@ -107,6 +108,31 @@
                             Glyph="{x:Static models:EntypoIconFont.ChartBar}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
+                    <BoxView Color="Aqua"></BoxView>
+                </xct:TabViewItem>
+                <xct:TabViewItem
+                    ControlTemplate="{StaticResource TabItemTemplate}"
+                    Style="{StaticResource AnimatedTabItemStyle}"
+                    >
+                    <xct:TabViewItem.Icon>
+                        <FontImageSource
+                            FontFamily="FontAwesome"
+                            Glyph="{x:Static models:EntypoIconFont.Star}"
+                            Color="White" />
+                    </xct:TabViewItem.Icon>
+                    <Button Text="HELASDUIO"></Button>
+                </xct:TabViewItem>
+                <xct:TabViewItem
+                    ControlTemplate="{StaticResource BasketTabItemTemplate}"
+                    Style="{StaticResource TabItemStyle}"
+                    TranslationY="7"
+                >
+                    <xct:TabViewItem.Icon>
+                        <FontImageSource
+                            FontFamily="FontAwesome"
+                            Glyph="{x:Static models:EntypoIconFont.Home}"
+                            Color="White"/>
+                    </xct:TabViewItem.Icon>
                     <StackLayout>
                         <Frame
                                 CornerRadius="250"
@@ -116,11 +142,22 @@
                                 BackgroundColor="White"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Start"
-                                Margin="50">
+                                Margin="40">
+                            <StackLayout HorizontalOptions="Center"
+                                         Padding="0,40">
+                                <Label HorizontalOptions="Center"
+                                       VerticalOptions="Start"
+                                       FontSize="60">123</Label>
+                                <Label HorizontalOptions="Center"
+                                       VerticalOptions="EndAndExpand"
+                                       FontSize="Title">
+                                    steps
+                                </Label>
+                            </StackLayout>
                         </Frame>
                         <Frame Padding="30">
                             <ScrollView VerticalScrollBarVisibility="Never">
-                                <StackLayout Margin="0,0,0,50">
+                                <StackLayout Margin="0,0,0, 15">
                                     <StackLayout Orientation="Horizontal">
                                         <Label VerticalOptions="Center">
                                             Last 3 days done:
@@ -177,31 +214,6 @@
                             </ScrollView>
                         </Frame>
                     </StackLayout>
-                </xct:TabViewItem>
-                <xct:TabViewItem
-                    ControlTemplate="{StaticResource TabItemTemplate}"
-                    Style="{StaticResource AnimatedTabItemStyle}"
-                    >
-                    <xct:TabViewItem.Icon>
-                        <FontImageSource
-                            FontFamily="FontAwesome"
-                            Glyph="{x:Static models:EntypoIconFont.Star}"
-                            Color="White" />
-                    </xct:TabViewItem.Icon>
-                    <Button Text="HELASDUIO"></Button>
-                </xct:TabViewItem>
-                <xct:TabViewItem
-                    ControlTemplate="{StaticResource BasketTabItemTemplate}"
-                    Style="{StaticResource TabItemStyle}"
-                    TranslationY="7"
-                >
-                    <xct:TabViewItem.Icon>
-                        <FontImageSource
-                            FontFamily="FontAwesome"
-                            Glyph="{x:Static models:EntypoIconFont.Home}"
-                            Color="White" />
-                    </xct:TabViewItem.Icon>
-                    <BoxView Color="Aqua"></BoxView>
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
