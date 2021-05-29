@@ -6,7 +6,9 @@
              xmlns:views="clr-namespace:Footer.Views;assembly=Footer"
              xmlns:footer="clr-namespace:Footer;assembly=Footer"
              xmlns:models="clr-namespace:Footer.Models;assembly=Footer"
-             xmlns:sh="http://sharpnado.com">
+             xmlns:sh="http://sharpnado.com"
+             xmlns:viewModels="clr-namespace:Footer.ViewModels;assembly=Footer"
+             x:DataType="viewModels:AboutViewModel">
     <ContentPage.Resources>
         <ControlTemplate
             x:Key="TabItemTemplate">
@@ -147,7 +149,7 @@
                                          Padding="0,40">
                                 <Label HorizontalOptions="Center"
                                        VerticalOptions="Start"
-                                       FontSize="60">123</Label>
+                                       FontSize="60" Text ="{Binding User.Nickname}"></Label>
                                 <Label HorizontalOptions="Center"
                                        VerticalOptions="EndAndExpand"
                                        FontSize="Title">
