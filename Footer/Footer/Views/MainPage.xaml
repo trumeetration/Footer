@@ -144,7 +144,7 @@
                             Glyph="{x:Static models:EntypoIconFont.User}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <Button Text="HELASDUIO" />
+                    <tabItemsContents:ProfilePage></tabItemsContents:ProfilePage>
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Footer.Views.TabItemsContents.ProfilePage">
+    <StackLayout>
+        <Frame 
+            HorizontalOptions="Center"
+            BorderColor="#7E58CF"
+            HeightRequest = "130"
+            WidthRequest = "130"
+            CornerRadius = "100"
+            Margin = "0, 50, 0, 0"
+            >
+        </Frame>
+        <Label
+            HorizontalOptions="Center"
+            FontSize="27"
+            Margin="0,0,0,20"
+            >
+            Nickname
+        </Label>
+        <Grid 
+            Padding="0"
+            Margin="0"
+            ColumnDefinitions="*,*"
+            RowDefinitions="*,2*,*">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                FontSize="22"
+                HorizontalOptions="Center">
+                TotalSteps
+            </Label>
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                FontSize="22"
+                HorizontalOptions="Center">
+                Achievements
+            </Label>
+            <Image 
+                Grid.Row="1"
+                Grid.Column="0"
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                Source="TotalSteps.png"></Image>
+            <Image 
+                Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                Source="TotalAchievements.png"></Image>
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                FontSize="32"
+                HorizontalOptions="Center">
+                111565
+            </Label>
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                FontSize="32"
+                HorizontalOptions="Center">
+                12
+            </Label>
+        </Grid>
+    </StackLayout>
+</Grid>
