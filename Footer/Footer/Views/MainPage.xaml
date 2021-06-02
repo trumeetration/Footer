@@ -121,7 +121,7 @@
                             Glyph="{x:Static models:EntypoIconFont.Star}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <Button Text="HELASDUIO" />
+                    <tabItemsContents:AchievementsPage></tabItemsContents:AchievementsPage>
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource BasketTabItemTemplate}"
