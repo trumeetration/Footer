@@ -110,7 +110,7 @@
                             Glyph="{x:Static models:EntypoIconFont.ChartBar}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <BoxView Color="Aqua" />
+                    <tabItemsContents:StatisticsPage></tabItemsContents:StatisticsPage>
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
@@ -121,7 +121,7 @@
                             Glyph="{x:Static models:EntypoIconFont.Star}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <tabItemsContents:AchievementsPage></tabItemsContents:AchievementsPage>
+                    <tabItemsContents:AchievementsPage />
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource BasketTabItemTemplate}"
@@ -133,7 +133,7 @@
                             Glyph="{x:Static models:EntypoIconFont.Home}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <tabItemsContents:StepsPage></tabItemsContents:StepsPage>
+                    <tabItemsContents:StepsPage />
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
@@ -144,7 +144,7 @@
                             Glyph="{x:Static models:EntypoIconFont.User}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <tabItemsContents:ProfilePage></tabItemsContents:ProfilePage>
+                    <tabItemsContents:ProfilePage />
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
@@ -155,7 +155,7 @@
                             Glyph="{x:Static models:EntypoIconFont.Cog}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <tabItemsContents:SettingsPage></tabItemsContents:SettingsPage>
+                    <tabItemsContents:SettingsPage />
                 </xct:TabViewItem>
             </xct:TabView>
         </Grid>
