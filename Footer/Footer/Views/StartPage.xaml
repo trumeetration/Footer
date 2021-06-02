@@ -3,13 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Footer.Views.StartPage"
              xmlns:vm="clr-namespace:Footer.ViewModels"
+             x:DataType="vm:LoginViewModel"
              xmlns:footer="clr-namespace:Footer;assembly=Footer"
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False">
-    
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -51,6 +48,7 @@
                          Padding="10,20,10,0">
                     <Entry Placeholder="login"
                            Margin="0, 20, 0, 20"
+                           Text="{Binding NicknameField}"
                            PlaceholderColor="#969696"
                            FontSize="22"
                            HorizontalTextAlignment="Start"/>

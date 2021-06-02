@@ -17,7 +17,7 @@ namespace Footer
             InitializeComponent();
             Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new StartPage();
         }
 
         protected override void OnStart()

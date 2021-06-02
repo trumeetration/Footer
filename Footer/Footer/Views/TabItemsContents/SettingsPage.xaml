@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Footer.Models;assembly=Footer"
+             x:Class="Footer.Views.TabItemsContents.SettingsPage">
+        <StackLayout Orientation="Vertical"
+                                 Padding="10,20">
+                        <Frame Margin="0,0,0,10"
+                               CornerRadius="5"
+                               Padding="20,10"
+                               BorderColor="#FF7600">
+                            <StackLayout Orientation="Horizontal">
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start">
+                                    App theme
+                                </Label>
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="EndAndExpand">
+                                    Default
+                                </Label>
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="End"
+                                       FontFamily="FontAwesome"
+                                       Text="{x:Static models:EntypoIconFont.ArrowRight}" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame CornerRadius="5"
+                               Margin="0,0,0,10"
+                               Padding="20,10"
+                               BorderColor="#FF7600">
+                            <StackLayout Orientation="Horizontal">
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start">
+                                    Language
+                                </Label>
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="EndAndExpand">
+                                    English
+                                </Label>
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="End"
+                                       FontFamily="FontAwesome"
+                                       Text="{x:Static models:EntypoIconFont.ArrowRight}" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame CornerRadius="5"
+                               Margin="0,0,0,10"
+                               Padding="20,10"
+                               BorderColor="#FF7600">
+                            <StackLayout Orientation="Horizontal">
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start">
+                                    Support
+                                </Label>
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="EndAndExpand">
+                                    Create ticket
+                                </Label>
+                                <Label VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="End"
+                                       FontFamily="FontAwesome"
+                                       Text="{x:Static models:EntypoIconFont.ArrowRight}" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame VerticalOptions="EndAndExpand"
+                               Margin="-10,0,-10,10"
+                               HasShadow="False"
+                               Padding="20,15">
+                            <StackLayout Orientation="Horizontal">
+                                <Label VerticalOptions="Center"
+                                       HorizontalOptions="Start">
+                                    Telegram
+                                </Label>
+                                <Label VerticalOptions="Center"
+                                       HorizontalOptions="EndAndExpand">
+                                    @FooAppName
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+</Grid>

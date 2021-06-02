@@ -11,7 +11,7 @@ using Xamarin.Forms.PlatformConfiguration;
 
 namespace Footer.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         private bool _isloginvisible = true;
         private bool _isregvisible = false;
@@ -19,9 +19,9 @@ namespace Footer.ViewModels
 
         public IUser User => App.CurrentUser;
 
-        public AboutViewModel()
+        public LoginViewModel()
         {
-            Title = "Login";
+            
         }
 
         
@@ -124,7 +124,7 @@ namespace Footer.ViewModels
                     Nickname = NicknameField
                 };
                 Preferences.Set("nickname", NicknameField);
-                App.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                App.Current.MainPage = new MainPage();
             });
         }
 

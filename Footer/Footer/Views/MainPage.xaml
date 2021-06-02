@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Footer.Views.MainPage"
@@ -8,20 +9,21 @@
              xmlns:models="clr-namespace:Footer.Models;assembly=Footer"
              xmlns:sh="http://sharpnado.com"
              xmlns:viewModels="clr-namespace:Footer.ViewModels;assembly=Footer"
-             x:DataType="viewModels:AboutViewModel">
+             xmlns:tabItemsContents="clr-namespace:Footer.Views.TabItemsContents;assembly=Footer"
+             x:DataType="viewModels:MainViewModel">
     <ContentPage.Resources>
         <ControlTemplate
             x:Key="TabItemTemplate">
             <Grid>
-                    <Image
-                        x:Name="TabIcon"
-                        Grid.Row="0"
-                        VerticalOptions="Start"
-                        HorizontalOptions="Center"
-                        WidthRequest="24"
-                        HeightRequest="24"
-                        Margin="6"
-                        Source="{TemplateBinding CurrentIcon}" />
+                <Image
+                    x:Name="TabIcon"
+                    Grid.Row="0"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    WidthRequest="24"
+                    HeightRequest="24"
+                    Margin="6"
+                    Source="{TemplateBinding CurrentIcon}" />
             </Grid>
         </ControlTemplate>
 
@@ -42,8 +44,7 @@
                         BackgroundColor="#FF7600"
                         HeightRequest="72"
                         WidthRequest="72"
-                        CornerRadius="60">
-                    </ImageButton>
+                        CornerRadius="60" />
                 </sh:Shadows>
             </Grid>
         </ControlTemplate>
@@ -97,149 +98,64 @@
                                                         Color={StaticResource MainBackgroundColor}}">
                         <BoxView
                             Color="{StaticResource MainBackgroundColor}"
-                            CornerRadius="20,20,0,0"></BoxView>
+                            CornerRadius="10,10,0,0" />
                     </sh:Shadows>
                 </xct:TabView.TabStripBackgroundView>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
-                    Style="{StaticResource AnimatedTabItemStyle}"
-                >
+                    Style="{StaticResource AnimatedTabItemStyle}">
                     <xct:TabViewItem.Icon>
                         <FontImageSource
                             FontFamily="FontAwesome"
                             Glyph="{x:Static models:EntypoIconFont.ChartBar}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <BoxView Color="Aqua"></BoxView>
+                    <BoxView Color="Aqua" />
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
-                    Style="{StaticResource AnimatedTabItemStyle}"
-                    >
+                    Style="{StaticResource AnimatedTabItemStyle}">
                     <xct:TabViewItem.Icon>
                         <FontImageSource
                             FontFamily="FontAwesome"
                             Glyph="{x:Static models:EntypoIconFont.Star}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <Button Text="HELASDUIO"></Button>
+                    <Button Text="HELASDUIO" />
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource BasketTabItemTemplate}"
                     Style="{StaticResource TabItemStyle}"
-                    TranslationY="7"
-                >
+                    TranslationY="7">
                     <xct:TabViewItem.Icon>
                         <FontImageSource
                             FontFamily="FontAwesome"
                             Glyph="{x:Static models:EntypoIconFont.Home}"
-                            Color="White"/>
+                            Color="White" />
                     </xct:TabViewItem.Icon>
-                    <StackLayout>
-                        <Frame
-                                CornerRadius="250"
-                                HeightRequest="250"
-                                WidthRequest="250"
-                                BorderColor="#FF7600"
-                                BackgroundColor="White"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Start"
-                                Margin="40">
-                            <StackLayout HorizontalOptions="Center"
-                                         Padding="0,40">
-                                <Label HorizontalOptions="Center"
-                                       VerticalOptions="Start"
-                                       FontSize="60" Text ="{Binding User.Nickname}"></Label>
-                                <Label HorizontalOptions="Center"
-                                       VerticalOptions="EndAndExpand"
-                                       FontSize="Title">
-                                    steps
-                                </Label>
-                            </StackLayout>
-                        </Frame>
-                        <Frame Padding="30">
-                            <ScrollView VerticalScrollBarVisibility="Never">
-                                <StackLayout Margin="0,0,0, 15">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label VerticalOptions="Center">
-                                            Last 3 days done:
-                                        </Label>
-                                        <Frame Padding="10"
-                                               BackgroundColor="{StaticResource MainBackgroundColor}"
-                                               Opacity="0.9"
-                                               CornerRadius="5"
-                                               HorizontalOptions="EndAndExpand">
-                                            <Label>123</Label>
-                                        </Frame>
-                                        <Label VerticalOptions="Center">steps</Label>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label VerticalOptions="Center">
-                                            Last 7 days done:
-                                        </Label>
-                                        <Frame Padding="10"
-                                               BackgroundColor="{StaticResource MainBackgroundColor}"
-                                               Opacity="0.9"
-                                               CornerRadius="5"
-                                               HorizontalOptions="EndAndExpand">
-                                            <Label>123</Label>
-                                        </Frame>
-                                        <Label VerticalOptions="Center">steps</Label>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label VerticalOptions="Center">
-                                            Last 14 days done:
-                                        </Label>
-                                        <Frame Padding="10"
-                                               BackgroundColor="{StaticResource MainBackgroundColor}"
-                                               Opacity="0.9"
-                                               CornerRadius="5"
-                                               HorizontalOptions="EndAndExpand">
-                                            <Label>123</Label>
-                                        </Frame>
-                                        <Label VerticalOptions="Center">steps</Label>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label VerticalOptions="Center">
-                                            Last 30 days done:
-                                        </Label>
-                                        <Frame Padding="10"
-                                               BackgroundColor="{StaticResource MainBackgroundColor}"
-                                               Opacity="0.9"
-                                               CornerRadius="5"
-                                               HorizontalOptions="EndAndExpand">
-                                            <Label>123</Label>
-                                        </Frame>
-                                        <Label VerticalOptions="Center">steps</Label>
-                                    </StackLayout>
-                                </StackLayout>
-                            </ScrollView>
-                        </Frame>
-                    </StackLayout>
+                    <tabItemsContents:StepsPage></tabItemsContents:StepsPage>
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
-                    Style="{StaticResource AnimatedTabItemStyle}"
-                    >
+                    Style="{StaticResource AnimatedTabItemStyle}">
                     <xct:TabViewItem.Icon>
                         <FontImageSource
                             FontFamily="FontAwesome"
                             Glyph="{x:Static models:EntypoIconFont.User}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <Button Text="HELASDUIO"></Button>
+                    <Button Text="HELASDUIO" />
                 </xct:TabViewItem>
                 <xct:TabViewItem
                     ControlTemplate="{StaticResource TabItemTemplate}"
-                    Style="{StaticResource AnimatedTabItemStyle}"
-                    >
+                    Style="{StaticResource AnimatedTabItemStyle}">
                     <xct:TabViewItem.Icon>
                         <FontImageSource
                             FontFamily="FontAwesome"
                             Glyph="{x:Static models:EntypoIconFont.Cog}"
                             Color="White" />
                     </xct:TabViewItem.Icon>
-                    <Button Text="HELASDUIO"></Button>
+                    <tabItemsContents:SettingsPage></tabItemsContents:SettingsPage>
                 </xct:TabViewItem>
             </xct:TabView>
         </Grid>

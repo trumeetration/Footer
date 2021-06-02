@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Footer.ViewModels;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,6 +15,7 @@ namespace Footer.Views
     {
         public MainPage()
         {
+            BindingContext = new MainViewModel();
             InitializeComponent();
         }
     }
