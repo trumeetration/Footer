@@ -4,6 +4,12 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
       x:Class="Footer.Views.TabItemsContents.StatisticsPage">
-    <forms:ChartView x:Name="ChartView1"
-                     HeightRequest="150"/>
+    <Grid Grid.RowDefinitions="*,3*,3*" Padding="0" Margin="0">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
+            <Button Text="Неделя"></Button>
+            <Button Text="Месяц"></Button>
+            <Button Text="Год"></Button>
+        </StackLayout>
+        <forms:ChartView x:Name="ChartView1" Grid.Row="1"/>
+    </Grid>
 </Grid>

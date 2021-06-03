@@ -17,23 +17,23 @@ namespace Footer.Views.TabItemsContents
         {
             new ChartEntry(10)
             {
-                Color = SKColor.Parse("#FF7600")
+                Color = SKColor.Parse("#DB1212")
             },
             new ChartEntry(5)
             {
-                Color = SKColor.Parse("#FF7600")
+                Color = SKColor.Parse("#DB1212")
             },
             new ChartEntry(30)
             {
-                Color = SKColor.Parse("#FF7600")
+                Color = SKColor.Parse("#DB1212")
             },
             new ChartEntry(25)
             {
-                Color = SKColor.Parse("#FF7600")
+                Color = SKColor.Parse("#DB1212")
             },
             new ChartEntry(20)
             {
-                Color = SKColor.Parse("#FF7600")
+                Color = SKColor.Parse("#DB1212")
             },
         };
 		public StatisticsPage ()
