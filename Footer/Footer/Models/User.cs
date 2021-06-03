@@ -17,7 +17,8 @@ namespace Footer.Models
         private string _lastName;
         public User()
         {
-            Statistic = new ObservableCollection<IStatistics>();
+            StatisticsCollection = StatisticsCollection ?? new ObservableCollection<IStatistic>();
+            AchievementsCollection = AchievementsCollection ?? new ObservableCollection<IAchievement>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,35 +36,24 @@ namespace Footer.Models
             }
         }
 
-        public string Email
+        public bool ChangeCredentials(string newPass, string currentPassword, string newUsername = "")
         {
-            get => _email;
-            set
-            {
-                _email = value;
-                OnPropertyChanged(nameof(Email));
-            }
+            //В будущем отсылать данные на сервер, проверять ответ от сервера
+            //Если ответ смены пароля успешен, сменить
+            Nickname = newUsername;
+            return true;
         }
 
-        /*public string FirstName
+        public bool Logout()
         {
-            get => _firstName;
-            set
-            {
-                _firstName = value;
-                OnPropertyChanged(nameof(FirstName));
-            }
-        }*/
+            //Если сервер подтверждает выход с аккаунта, очищаем данные юзера
+            Nickname = string.Empty;
+            StatisticsCollection.Clear();
+            return true;
+        }
 
-        /*public string LastName
-        {
-            get => _lastName;
-            set
-            {
-                _lastName = value;
-                OnPropertyChanged(nameof(LastName));
-            }
-        }*/
-        public ObservableCollection<IStatistics> Statistic { get; }
+        public ObservableCollection<IStatistic> StatisticsCollection { get; set; }
+
+        public ObservableCollection<IAchievement> AchievementsCollection { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using Footer.Interfaces;
 
 namespace Footer.Models
 {
-    public class Statistics : IStatistics
+    public class Statistic : IStatistic
     {
         public DateTime Date { get; }
         public int Steps { get; }

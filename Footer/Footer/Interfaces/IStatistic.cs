@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Footer.Interfaces
 {
-    public interface IStatistics
+    public interface IStatistic
     {
         DateTime Date { get; }
         int Steps { get; }
