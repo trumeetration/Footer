@@ -54,6 +54,7 @@
                            FontSize="22"
                            HorizontalTextAlignment="Start"/>
                     <Entry Placeholder="password"
+                           Text="{Binding PasswordField}"
                            Margin="0, 0, 0, 20"
                            PlaceholderColor="#969696"
                            FontSize="22"
@@ -82,14 +83,17 @@
                 <StackLayout Orientation="Vertical" IsVisible="{Binding IsRegisterVisible}"
                          Padding="10,20,10,0">
                     <Entry Placeholder="login"
+                           Text="{Binding NicknameField}"
                        PlaceholderColor="#969696"
                        FontSize="22"
                        HorizontalTextAlignment="Start"/>
                     <Entry Placeholder="password"
+                           Text="{Binding PasswordField}"
                        PlaceholderColor="#969696"
                        FontSize="22"
                        HorizontalTextAlignment="Start"/>
                     <Entry Placeholder="confirm password"
+                           Text="{Binding PasswordField}"
                            PlaceholderColor="#969696"
                            FontSize="22"
                            HorizontalTextAlignment="Start"/>
@@ -101,7 +105,7 @@
                         Text="Sign Up"
                         FontSize="20"
                         Padding="0,0,0,0"
-                        Command="{Binding ShowLoginForm}"
+                        Command="{Binding RegisterCommand}"
                         />
                     <Button
                         Style="{StaticResource ButtonAnotherStyle}"
@@ -113,33 +117,6 @@
                         Padding="0,0,0,0"
                         Command="{Binding ShowLoginForm}"
                     />
-                </StackLayout>
-                <StackLayout Orientation="Vertical" IsVisible="{Binding IsRecoveryVisible}"
-                         Padding="10,20,10,0">
-                    <Entry Placeholder="email"
-                       PlaceholderColor="#969696"
-                       FontSize="22"
-                       HorizontalTextAlignment="Start"/>
-                    <Button
-                        Style="{StaticResource ButtonConfirmStyle}"
-                        HeightRequest="40"
-                        Margin="0,20, 0, 0"
-                        CornerRadius="10"
-                        Text="Confirm"
-                        FontSize="20"
-                        Padding="0,0,0,0"
-                        Command="{Binding ShowLoginForm}"
-                        />
-                    <Button
-                        Style="{StaticResource ButtonAnotherStyle}"
-                        HeightRequest="40"
-                        Margin="0,20, 0, 0"
-                        CornerRadius="10"
-                        Text="Back"
-                        FontSize="20"
-                        Padding="0,0,0,0"
-                        Command="{Binding ShowLoginForm}"
-                        />
                 </StackLayout>
             </StackLayout>
         </Frame>

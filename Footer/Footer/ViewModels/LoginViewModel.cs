@@ -17,7 +17,7 @@ namespace Footer.ViewModels
         private bool _isregvisible = false;
         private bool _isrecoveryvisible = false;
 
-        public IUser User => App.CurrentUser;
+        public IUser User;
 
         public LoginViewModel()
         {
@@ -51,25 +51,12 @@ namespace Footer.ViewModels
             }
         }
 
-        public bool IsRecoveryVisible
-        {
-            get => _isrecoveryvisible;
-            set
-            {
-                if (_isrecoveryvisible != value)
-                {
-                    _isrecoveryvisible = value;
-                    OnPropertyChanged(nameof(IsRecoveryVisible));
-                }
-            }
-        }
-
         public ICommand ShowLoginForm
         {
             get => new Command(() =>
             {
                 IsLoginVisible = true;
-                IsRecoveryVisible = IsRegisterVisible = false;
+                IsRegisterVisible = false;
             });
         }
 
@@ -78,16 +65,7 @@ namespace Footer.ViewModels
             get => new Command(() =>
             {
                 IsRegisterVisible = true;
-                IsLoginVisible = IsRecoveryVisible = false;
-            });
-        }
-
-        public ICommand ShowRecoveryForm
-        {
-            get => new Command(() =>
-            {
-                IsRecoveryVisible = true;
-                IsLoginVisible = IsRegisterVisible = false;
+                IsLoginVisible = false;
             });
         }
 
@@ -103,15 +81,27 @@ namespace Footer.ViewModels
             }
         }
 
-        private string _emailField;
-        public string EmailField
+        private string _passwordField;
+        public string PasswordField
         {
-            get => _emailField;
+            get => _passwordField;
             set
             {
-                if (_emailField != value)
-                    _emailField = value;
-                OnPropertyChanged(nameof(EmailField));
+                if (_passwordField != value)
+                    _passwordField = value;
+                OnPropertyChanged(nameof(PasswordField));
+            }
+        }
+
+        private string _passwordFieldAgain;
+        public string PasswordFieldAgain
+        {
+            get => _passwordFieldAgain;
+            set
+            {
+                if (_passwordFieldAgain != value)
+                    _passwordFieldAgain = value;
+                OnPropertyChanged(nameof(PasswordFieldAgain));
             }
         }
 
@@ -119,12 +109,14 @@ namespace Footer.ViewModels
         {
             get => new Command(() =>
             {
-                App.CurrentUser = new User()
+                User = new User();
+                if (User.Login(NicknameField, PasswordField) != true)
+                    User = User;//toast that user insert bad data
+                else
                 {
-                    Nickname = NicknameField
-                };
-                Preferences.Set("nickname", NicknameField);
-                App.Current.MainPage = new MainPage();
+                    Preferences.Set("nickname", NicknameField);
+                    App.Current.MainPage = new MainPage();
+                }
             });
         }
 
@@ -132,12 +124,14 @@ namespace Footer.ViewModels
         {
             get => new Command(() =>
             {
-                App.CurrentUser = new User()
+                User = new User();
+                if (User.Register(NicknameField, PasswordField) != true)
+                    User = User;//toast that user insert bad data
+                else
                 {
-                    Nickname = NicknameField
-                };
-                Preferences.Set("nickname", NicknameField);
-                App.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                    Preferences.Set("nickname", NicknameField);
+                    App.Current.MainPage = new MainPage();
+                }
             });
         }
     }

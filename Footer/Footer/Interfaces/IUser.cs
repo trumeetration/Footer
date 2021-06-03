@@ -10,5 +10,9 @@ namespace Footer.Interfaces
         string Nickname { get; set; }
         ObservableCollection<IStatistic> StatisticsCollection { get; set; }
         ObservableCollection<IAchievement> AchievementsCollection { get; set; }
+        bool ChangeCredentials(string newPass, string currentPassword, string newUsername = "");
+        bool Login(string login, string password);
+        bool Logout();
+        bool Register(string login, string password);
     }
 }
