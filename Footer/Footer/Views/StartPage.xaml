@@ -6,7 +6,8 @@
              x:DataType="vm:LoginViewModel"
              xmlns:footer="clr-namespace:Footer;assembly=Footer"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="False"
+             BackgroundColor="White">
 
     <ContentPage.Resources>
         <ResourceDictionary>
