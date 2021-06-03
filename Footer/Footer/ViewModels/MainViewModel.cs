@@ -24,73 +24,6 @@ namespace Footer.ViewModels
             Title = "Login";
         }
 
-        
-        public bool IsLoginVisible
-        {
-            get => _isloginvisible;
-            set
-            {
-                if (_isloginvisible != value)
-                {
-                    _isloginvisible = value;
-                    OnPropertyChanged(nameof(IsLoginVisible));
-                }
-            }
-        }
-
-        public bool IsRegisterVisible
-        {
-            get => _isregvisible;
-            set
-            {
-                if (_isregvisible != value)
-                {
-                    _isregvisible = value;
-                    OnPropertyChanged(nameof(IsRegisterVisible));
-                }
-            }
-        }
-
-        public bool IsRecoveryVisible
-        {
-            get => _isrecoveryvisible;
-            set
-            {
-                if (_isrecoveryvisible != value)
-                {
-                    _isrecoveryvisible = value;
-                    OnPropertyChanged(nameof(IsRecoveryVisible));
-                }
-            }
-        }
-
-        public ICommand ShowLoginForm
-        {
-            get => new Command(() =>
-            {
-                IsLoginVisible = true;
-                IsRecoveryVisible = IsRegisterVisible = false;
-            });
-        }
-
-        public ICommand ShowRegisterForm
-        {
-            get => new Command(() =>
-            {
-                IsRegisterVisible = true;
-                IsLoginVisible = IsRecoveryVisible = false;
-            });
-        }
-
-        public ICommand ShowRecoveryForm
-        {
-            get => new Command(() =>
-            {
-                IsRecoveryVisible = true;
-                IsLoginVisible = IsRegisterVisible = false;
-            });
-        }
-
         private string _nicknameField;
         public string NicknameField
         {
@@ -103,42 +36,52 @@ namespace Footer.ViewModels
             }
         }
 
-        private string _emailField;
-        public string EmailField
+        private string _newPassField;
+        public string NewPassField
         {
-            get => _emailField;
+            get => _newPassField;
             set
             {
-                if (_emailField != value)
-                    _emailField = value;
-                OnPropertyChanged(nameof(EmailField));
+                if (_newPassField != value)
+                    _newPassField = value;
+                OnPropertyChanged(nameof(NewPassField));
             }
         }
 
-        public ICommand LoginCommand
+        private string _currentPasswordField;
+        public string CurrentPasswordField
+        {
+            get => _currentPasswordField;
+            set
+            {
+                if (_currentPasswordField != value)
+                    _currentPasswordField = value;
+                OnPropertyChanged(nameof(CurrentPasswordField));
+            }
+        }
+
+        private string _newNicknameField;
+        public string NewNicknameField
+        {
+            get => _newNicknameField;
+            set
+            {
+                if (_newNicknameField != value)
+                    _newNicknameField = value;
+                OnPropertyChanged(nameof(NewNicknameField));
+            }
+        }
+
+        public ICommand ChangeUserDataCommand
         {
             get => new Command(() =>
             {
-                App.CurrentUser = new User()
+                if (User.ChangeCredentials(NewPassField, CurrentPasswordField, NewNicknameField) != true)
                 {
-                    Nickname = NicknameField
-                };
-                Preferences.Set("nickname", NicknameField);
-                App.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                    NewNicknameField = NewNicknameField; //todo toast user input bad data
+                }
             });
         }
 
-        public ICommand RegisterCommand
-        {
-            get => new Command(() =>
-            {
-                App.CurrentUser = new User()
-                {
-                    Nickname = NicknameField
-                };
-                Preferences.Set("nickname", NicknameField);
-                App.Current.MainPage.Navigation.PushModalAsync(new MainPage());
-            });
-        }
     }
 }
