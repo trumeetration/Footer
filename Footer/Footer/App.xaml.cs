@@ -1,5 +1,4 @@
-﻿using Footer.Services;
-using Footer.Views;
+﻿using Footer.Views;
 using System;
 using Footer.Interfaces;
 using Footer.Models;
