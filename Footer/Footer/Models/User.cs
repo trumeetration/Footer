@@ -11,14 +11,15 @@ namespace Footer.Models
     public class User: INotifyPropertyChanged, IUser
     {
         private string _nickname;
-        //todo private string _password;
-        private string _email;
-        private string _firstName;
-        private string _lastName;
+        public ObservableCollection<IStatistic> StatisticsCollection { get; set; }
+
+        public ObservableCollection<IAchievement> AchievementsCollection { get; set; }
+        public ObservableCollection<IAchievement> OwnedAchievementsCollection { get; set; }
         public User()
         {
             StatisticsCollection = StatisticsCollection ?? new ObservableCollection<IStatistic>();
             AchievementsCollection = AchievementsCollection ?? new ObservableCollection<IAchievement>();
+            OwnedAchievementsCollection = OwnedAchievementsCollection ?? new ObservableCollection<IAchievement>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -44,6 +45,13 @@ namespace Footer.Models
             return true;
         }
 
+        public bool Login(string login, string password)
+        {
+            //Если авторизация гуд, присвоить свойствам значения из ответа от сервера (ник, стата, ачивки, заработанные ачивки)
+            Nickname = login;
+            return true;
+        }
+
         public bool Logout()
         {
             //Если сервер подтверждает выход с аккаунта, очищаем данные юзера
@@ -52,8 +60,11 @@ namespace Footer.Models
             return true;
         }
 
-        public ObservableCollection<IStatistic> StatisticsCollection { get; set; }
-
-        public ObservableCollection<IAchievement> AchievementsCollection { get; set; }
+        public bool Register(string login, string password)
+        {
+            //Если сервер подтверждает регу аккаунта, очищаем данные юзера
+            Nickname = login;
+            return true;
+        }
     }
 }
