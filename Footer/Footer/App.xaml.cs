@@ -21,28 +21,17 @@ namespace Footer
 
         protected override void OnStart()
         {
-            if (Preferences.ContainsKey("nickname"))
-            {
-                CurrentUser = new User
-                {
-                    Nickname = Preferences.Get("nickname", "")
-                    //todo Password = Preferences.Get("password", "")
-                };
-            }
-            else
-            {
-                CurrentUser = null;
-                var page = new StartPage();
-                MainPage.Navigation.PushModalAsync(page);
-            }
+            
         }
 
         protected override void OnSleep()
         {
+
         }
 
         protected override void OnResume()
         {
+
         }
     }
 }
