@@ -17,7 +17,6 @@ namespace Footer.ViewModels
         private bool _isregvisible = false;
         private bool _isrecoveryvisible = false;
 
-        public IUser User;
 
         public LoginViewModel()
         {
@@ -109,12 +108,13 @@ namespace Footer.ViewModels
         {
             get => new Command(() =>
             {
-                User = new User();
+                IUser User = new User();
                 if (User.Login(NicknameField, PasswordField) != true)
                     User = User;//toast that user insert bad data
                 else
                 {
                     Preferences.Set("nickname", NicknameField);
+                    App.CurrentUser = User;
                     App.Current.MainPage = new MainPage();
                 }
             });
@@ -124,12 +124,13 @@ namespace Footer.ViewModels
         {
             get => new Command(() =>
             {
-                User = new User();
+                IUser User = new User();
                 if (User.Register(NicknameField, PasswordField) != true)
                     User = User;//toast that user insert bad data
                 else
                 {
                     Preferences.Set("nickname", NicknameField);
+                    App.CurrentUser = User;
                     App.Current.MainPage = new MainPage();
                 }
             });
