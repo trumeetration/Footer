@@ -3,13 +3,111 @@
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
-      x:Class="Footer.Views.TabItemsContents.StatisticsPage">
+      xmlns:footer="clr-namespace:Footer;assembly=Footer"
+      x:Class="Footer.Views.TabItemsContents.StatisticsPage"
+      BackgroundColor="White">
     <Grid Grid.RowDefinitions="*,3*,3*" Padding="0" Margin="0">
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
-            <Button Text="Неделя"></Button>
-            <Button Text="Месяц"></Button>
-            <Button Text="Год"></Button>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal" HeightRequest="50" Spacing="0">
+            <footer:CustomFrame
+                WidthRequest="100"
+                HasShadow="False"
+                Padding="0"
+                Margin="0"
+                BorderColor="#045AFF"
+                BackgroundColor="Transparent"
+                CornerRadius="30,0,30,0">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontSize="17"
+                    TextColor="#045AFF">
+                    Неделя
+                </Label>
+            </footer:CustomFrame>
+            <footer:CustomFrame
+                WidthRequest="100"
+                HasShadow="False"
+                Padding="0"
+                BorderColor="#045AFF"
+                BackgroundColor="Transparent"
+                Margin="-1,0,-1,0">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontSize="17"
+                    TextColor="#045AFF">
+                    Месяц
+                </Label>
+            </footer:CustomFrame>
+            <footer:CustomFrame
+                WidthRequest="100"
+                HasShadow="False"
+                Padding="0"
+                Margin="0"
+                BorderColor="#045AFF"
+                BackgroundColor="Transparent"
+                CornerRadius="0,30,0,30">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontSize="17"
+                    TextColor="#045AFF">
+                    Год
+                </Label>
+            </footer:CustomFrame>
         </StackLayout>
-        <forms:ChartView x:Name="ChartView1" Grid.Row="1"/>
+        <forms:ChartView x:Name="ChartView1" Grid.Row="1" Background="Transparent"/>
+        <Grid Grid.ColumnDefinitions="*,*,*" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Start">
+            <Frame Grid.Column="0"
+                   Margin="0"
+                   HasShadow="False"
+                   Background="Transparent">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Vertical" Spacing="20">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="20"
+                        TextColor="#0E9E02">Min</Label>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="24"
+                        TextColor="#0E9E02">1000</Label>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Column="1"
+                   Margin="0"
+                   HasShadow="False"
+                   Background="Transparent">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Vertical" Spacing="20">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="20"
+                        TextColor="#004EE7">Average</Label>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="24"
+                        TextColor="#004EE7">5000</Label>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Column="2"
+                   Margin="0"
+                   HasShadow="False"
+                   Background="Transparent">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Vertical" Spacing="20">
+                    <Label HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="20"
+                           TextColor="#DB1212">Max</Label>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="24"
+                        TextColor="#DB1212">10000</Label>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </Grid>
 </Grid>

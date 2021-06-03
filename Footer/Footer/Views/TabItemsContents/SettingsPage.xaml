@@ -2,7 +2,8 @@
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:Footer.Models;assembly=Footer"
-             x:Class="Footer.Views.TabItemsContents.SettingsPage">
+             x:Class="Footer.Views.TabItemsContents.SettingsPage"
+             BackgroundColor="White">
         <StackLayout Orientation="Vertical"
                                  Padding="10,20">
             <Frame Margin="0,0,0,10"

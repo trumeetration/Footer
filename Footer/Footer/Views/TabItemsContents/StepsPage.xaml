@@ -6,7 +6,8 @@
       xmlns:models="clr-namespace:Footer.Models;assembly=Footer"
       xmlns:viewModels="clr-namespace:Footer.ViewModels;assembly=Footer"
       x:Class="Footer.Views.TabItemsContents.StepsPage"
-      x:DataType="viewModels:MainViewModel">
+      x:DataType="viewModels:MainViewModel"
+      BackgroundColor="White">
     <StackLayout>
         <Frame
             CornerRadius="250"
