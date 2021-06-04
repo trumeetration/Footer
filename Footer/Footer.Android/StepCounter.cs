@@ -7,6 +7,7 @@ using Footer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using Java.Util;
 
 namespace Footer.Droid
@@ -22,6 +23,7 @@ namespace Footer.Droid
         private int DATA_SAMPLING_SIZE = 15;
         private int LAG_SIZE = 5;
         private int peakCount = 0;
+        private bool inStep = true;
 
         public int Steps
         {
@@ -52,7 +54,7 @@ namespace Footer.Droid
 
         public void OnSensorChanged(SensorEvent e)
         {
-            if (e.Sensor.Type == SensorType.Accelerometer)
+            /*if (e.Sensor.Type == SensorType.Accelerometer)
             {
                 float x_acc = e.Values[0];
                 float y_acc = e.Values[1];
@@ -73,7 +75,8 @@ namespace Footer.Droid
                 }
                 else if (zscoreCalculationValues.Count == DATA_SAMPLING_SIZE)
                 {
-                    Steps += DetectPeak(zscoreCalculationValues, LAG_SIZE, 3d, 0.2d);
+                    var output = ZScore.StartAlgo(zscoreCalculationValues, LAG_SIZE, 10d, 5d);
+                    StepsCounter += output.signals.Select(x => x==1).Count();
                     zscoreCalculationValues.Clear();
                     zscoreCalculationValues.Add(Magnitude);
                 }
@@ -84,7 +87,19 @@ namespace Footer.Droid
             }
 
 
-            Console.WriteLine(e.ToString());
+            Console.WriteLine(e.ToString());*/
+            float x = e.Values[0];
+            float y = e.Values[1];
+            float z = e.Values[2];
+
+            double currentvectorSum = (x*x + y*y + z*z);
+            if(currentvectorSum < 100 && inStep==false){
+                inStep = true;
+            }
+            if(currentvectorSum > 125 && inStep==true){
+                inStep = false;
+                StepsCounter = ;
+            }
         }
 
         public int DetectPeak(List<double> inputs, int lag, double threshold, double influence)
@@ -153,4 +168,79 @@ namespace Footer.Droid
             return Android.App.Application.Context.PackageManager.HasSystemFeature(Android.Content.PM.PackageManager.FeatureSensorStepCounter) && Android.App.Application.Context.PackageManager.HasSystemFeature(Android.Content.PM.PackageManager.FeatureSensorStepDetector);
         }
     }
+
+    public class ZScoreOutput
+{
+    public List<double> input;
+    public List<int> signals;
+    public List<double> avgFilter;
+    public List<double> filtered_stddev;
+}
+
+public static class ZScore
+{
+    public static ZScoreOutput StartAlgo(List<double> input, int lag, double threshold, double influence)
+    {
+        // init variables!
+        int[] signals = new int[input.Count];
+        double[] filteredY = new List<double>(input).ToArray();
+        double[] avgFilter = new double[input.Count];
+        double[] stdFilter = new double[input.Count];
+
+        var initialWindow = new List<double>(filteredY).Skip(0).Take(lag).ToList();
+
+        avgFilter[lag - 1] = Mean(initialWindow);
+        stdFilter[lag - 1] = StdDev(initialWindow);
+
+        for (int i = lag; i < input.Count; i++)
+        {
+            if (Math.Abs(input[i] - avgFilter[i - 1]) > threshold * stdFilter[i - 1])
+            {
+                signals[i] = (input[i] > avgFilter[i - 1]) ? 1 : -1;
+                filteredY[i] = influence * input[i] + (1 - influence) * filteredY[i - 1];
+            }
+            else
+            {
+                signals[i] = 0;
+                filteredY[i] = input[i];
+            }
+
+            // Update rolling average and deviation
+            var slidingWindow = new List<double>(filteredY).Skip(i - lag).Take(lag+1).ToList();
+
+            var tmpMean = Mean(slidingWindow);
+            var tmpStdDev = StdDev(slidingWindow);
+
+            avgFilter[i] = Mean(slidingWindow);
+            stdFilter[i] = StdDev(slidingWindow);
+        }
+
+        // Copy to convenience class 
+        var result = new ZScoreOutput();
+        result.input = input;
+        result.avgFilter       = new List<double>(avgFilter);
+        result.signals         = new List<int>(signals);
+        result.filtered_stddev = new List<double>(stdFilter);
+
+        return result;
+    }
+
+    private static double Mean(List<double> list)
+    {
+        // Simple helper function! 
+        return list.Average();
+    }
+
+    private static double StdDev(List<double> values)
+    {
+        double ret = 0;
+        if (values.Count() > 0)
+        {
+            double avg = values.Average();
+            double sum = values.Sum(d => Math.Pow(d - avg, 2));
+            ret = Math.Sqrt((sum) / (values.Count() - 1));
+        }
+        return ret;
+    }
+}
 }
