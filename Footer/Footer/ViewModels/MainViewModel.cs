@@ -17,6 +17,7 @@ namespace Footer.ViewModels
         private bool _isloginvisible = true;
         private bool _isregvisible = false;
         private bool _isrecoveryvisible = false;
+        private bool _isLanguageVisible = false;
 
         public IUser User => App.CurrentUser;
 
@@ -25,15 +26,13 @@ namespace Footer.ViewModels
             Title = "Login";
             Device.StartTimer(TimeSpan.FromMilliseconds(300), () =>
             {
-                Task.Run(async () =>
-                {
-                    StepsCountField = DependencyService.Get<IStepCounter>().Steps.ToString();
-                });
+                Task.Run(async () => { StepsCountField = DependencyService.Get<IStepCounter>().Steps.ToString(); });
                 return true;
             });
         }
 
         private string _nicknameField;
+
         public string NicknameField
         {
             get => _nicknameField;
@@ -46,6 +45,7 @@ namespace Footer.ViewModels
         }
 
         private string _newPassField;
+
         public string NewPassField
         {
             get => _newPassField;
@@ -58,6 +58,7 @@ namespace Footer.ViewModels
         }
 
         private string _currentPasswordField;
+
         public string CurrentPasswordField
         {
             get => _currentPasswordField;
@@ -70,16 +71,34 @@ namespace Footer.ViewModels
         }
 
         private string _newNicknameField;
-        public string NewNicknameField
+        public string NewNicknameField {
+        get => _newNicknameField;
+
+        set
         {
-            get => _newNicknameField;
+            if (_newNicknameField != value)
+                _newNicknameField = value;
+            OnPropertyChanged(nameof(NewNicknameField));
+        }
+    }
+
+    public bool isLanguageVisible
+        {
+            get => _isLanguageVisible;
             set
             {
-                if (_newNicknameField != value)
-                    _newNicknameField = value;
-                OnPropertyChanged(nameof(NewNicknameField));
+                if (_isLanguageVisible != value)
+                {
+                    _isLanguageVisible = value;
+                    OnPropertyChanged(nameof(isLanguageVisible));
+                }
             }
         }
+
+        
+
+        
+    
 
         private string _stepsCountField;
 
@@ -94,41 +113,7 @@ namespace Footer.ViewModels
             }
         }
 
-        private string _x;
-        public string X
-        {
-            get => _x;
-            set
-            {
-                if (_x != value)
-                    _x = value;
-                OnPropertyChanged(nameof(X));
-            }
-        }
-
-        private string _y;
-        public string Y
-        {
-            get => _y;
-            set
-            {
-                if (_y != value)
-                    _y = value;
-                OnPropertyChanged(nameof(Y));
-            }
-        }
-
-        private string _z;
-        public string Z
-        {
-            get => _z;
-            set
-            {
-                if (_z != value)
-                    _z = value;
-                OnPropertyChanged(nameof(Z));
-            }
-        }
+        
 
         public ICommand ChangeUserDataCommand
         {
