@@ -93,12 +93,12 @@ namespace Footer.Droid
             float z = e.Values[2];
 
             double currentvectorSum = (x*x + y*y + z*z);
-            if(currentvectorSum < 100 && inStep==false){
+            if(currentvectorSum < 90 && inStep==false){
                 inStep = true;
             }
             if(currentvectorSum > 125 && inStep==true){
                 inStep = false;
-                StepsCounter = ;
+                StepsCounter++;
             }
         }
 
