@@ -12,20 +12,63 @@
                     HeightRequest="5"/>
         </xct:TabView.TabIndicatorView>
         <xct:TabViewItem Text="Claimed">
-            <CollectionView>
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Horizontal"
-                                     Span="2"/>
-                </CollectionView.ItemsLayout>
-            </CollectionView>
+            <StackLayout Padding="20">
+                <CollectionView ItemsSource="{Binding User.OwnedAchievementsCollection}"
+                                VerticalOptions="EndAndExpand">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal"
+                                         Span="2"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="False">
+                                <StackLayout Orientation="Vertical"
+                                             HorizontalOptions="Center">
+                                    <Image Source="AvatarCat.png"
+                                           HeightRequest="140">
+                                    </Image>
+                                    <Label Text="{Binding Title}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"></Label>
+                                    <Label Text="{Binding Description}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"></Label>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
         </xct:TabViewItem>
         <xct:TabViewItem Text="All">
-            <CollectionView>
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Horizontal"
-                                     Span="2"/>
-                </CollectionView.ItemsLayout>
-            </CollectionView>
+            <StackLayout Padding="20">
+                <CollectionView ItemsSource="{Binding User.AchievementsCollection}"
+                                VerticalOptions="EndAndExpand">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal"
+                                         Span="2"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="False">
+                                <StackLayout Orientation="Vertical"
+                                             HorizontalOptions="Center">
+                                    <Image Source="AvatarCat.png"
+                                           HeightRequest="140">
+                                    </Image>
+                                    <Label Text="{Binding Title}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"></Label>
+                                    <Label Text="{Binding Description}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"></Label>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            
         </xct:TabViewItem>
     </xct:TabView>
 </Grid>

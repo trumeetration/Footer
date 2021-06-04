@@ -21,7 +21,7 @@
                     VerticalTextAlignment="Center"
                     FontSize="17"
                     TextColor="#045AFF">
-                    Неделя
+                    Week
                 </Label>
             </footer:CustomFrame>
             <footer:CustomFrame
@@ -36,7 +36,7 @@
                     VerticalTextAlignment="Center"
                     FontSize="17"
                     TextColor="#045AFF">
-                    Месяц
+                    Month
                 </Label>
             </footer:CustomFrame>
             <footer:CustomFrame
@@ -52,7 +52,7 @@
                     VerticalTextAlignment="Center"
                     FontSize="17"
                     TextColor="#045AFF">
-                    Год
+                    Year
                 </Label>
             </footer:CustomFrame>
         </StackLayout>

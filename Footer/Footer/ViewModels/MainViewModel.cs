@@ -23,10 +23,45 @@ namespace Footer.ViewModels
 
         public MainViewModel()
         {
-            Title = "Login";
             Device.StartTimer(TimeSpan.FromMilliseconds(300), () =>
             {
                 Task.Run(async () => { StepsCountField = DependencyService.Get<IStepCounter>().Steps.ToString(); });
+                return true;
+            });
+            User.AchievementsCollection.Add(new Achievement()
+            {
+                Title = "Beginner",
+                Description = "Make 100 steps",
+                StepsNeed = 100,
+                Claimed = false
+            });
+            User.AchievementsCollection.Add(new Achievement()
+            {
+                Title = "Middle",
+                Description = "Make 500 steps",
+                StepsNeed = 500,
+                Claimed = false
+            });
+            User.AchievementsCollection.Add(new Achievement()
+            {
+                Title = "Runner",
+                Description = "Make 1000 steps",
+                StepsNeed = 1000,
+                Claimed = false
+            });
+            Device.StartTimer(TimeSpan.FromMilliseconds(5000), () =>
+            {
+                Task.Run(async () => {
+                    for (int i = 0; i < User.AchievementsCollection.Count; i++)
+                    {
+                        if (User.AchievementsCollection[i].StepsNeed <= Convert.ToInt32(StepsCountField) &&
+                            User.AchievementsCollection[i].Claimed == false)
+                        {
+                            User.OwnedAchievementsCollection.Add(User.AchievementsCollection[i]);
+                            User.AchievementsCollection[i].Claimed = true;
+                        }
+                    }
+                });
                 return true;
             });
         }
@@ -121,6 +156,20 @@ namespace Footer.ViewModels
                     NewNicknameField = NewNicknameField; //todo toast user input bad data
                 }
             });
+        }
+
+        public ICommand ShowLanguage
+        {
+            get => new Command(() =>
+            {
+                if (isLanguageVisible)
+                {
+                    isLanguageVisible = false;
+                }
+                else
+                    isLanguageVisible = true;
+            });
+
         }
     }
 }

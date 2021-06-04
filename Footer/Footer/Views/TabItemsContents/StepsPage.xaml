@@ -42,7 +42,7 @@
                                Opacity="0.9"
                                CornerRadius="5"
                                HorizontalOptions="EndAndExpand">
-                            <Label>123</Label>
+                            <Label Text="{Binding StepsCountField}"></Label>
                         </Frame>
                         <Label VerticalOptions="Center">steps</Label>
                     </StackLayout>
@@ -55,7 +55,7 @@
                                Opacity="0.9"
                                CornerRadius="5"
                                HorizontalOptions="EndAndExpand">
-                            <Label>123</Label>
+                            <Label Text="{Binding StepsCountField}"></Label>
                         </Frame>
                         <Label VerticalOptions="Center">steps</Label>
                     </StackLayout>
@@ -68,7 +68,7 @@
                                Opacity="0.9"
                                CornerRadius="5"
                                HorizontalOptions="EndAndExpand">
-                            <Label>123</Label>
+                            <Label Text="{Binding StepsCountField}"></Label>
                         </Frame>
                         <Label VerticalOptions="Center">steps</Label>
                     </StackLayout>
@@ -81,7 +81,7 @@
                                Opacity="0.9"
                                CornerRadius="5"
                                HorizontalOptions="EndAndExpand">
-                            <Label>123</Label>
+                            <Label Text="{Binding StepsCountField}"></Label>
                         </Frame>
                         <Label VerticalOptions="Center">steps</Label>
                     </StackLayout>
