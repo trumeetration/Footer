@@ -23,7 +23,7 @@ namespace Footer.ViewModels
         public MainViewModel()
         {
             Title = "Login";
-            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            Device.StartTimer(TimeSpan.FromMilliseconds(300), () =>
             {
                 Task.Run(async () =>
                 {
@@ -91,6 +91,42 @@ namespace Footer.ViewModels
                 if (_stepsCountField != value)
                     _stepsCountField = value;
                 OnPropertyChanged(nameof(StepsCountField)); // DependencyService.Get<IStepCounter>().Steps.ToString()
+            }
+        }
+
+        private string _x;
+        public string X
+        {
+            get => _x;
+            set
+            {
+                if (_x != value)
+                    _x = value;
+                OnPropertyChanged(nameof(X));
+            }
+        }
+
+        private string _y;
+        public string Y
+        {
+            get => _y;
+            set
+            {
+                if (_y != value)
+                    _y = value;
+                OnPropertyChanged(nameof(Y));
+            }
+        }
+
+        private string _z;
+        public string Z
+        {
+            get => _z;
+            set
+            {
+                if (_z != value)
+                    _z = value;
+                OnPropertyChanged(nameof(Z));
             }
         }
 

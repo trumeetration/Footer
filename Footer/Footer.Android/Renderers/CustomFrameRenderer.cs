@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
-using Android.Content;
+﻿using Android.Content;
 using Android.Graphics.Drawables;
 using Footer;
 using Footer.Droid.Renderers;
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using FrameRenderer = Xamarin.Forms.Platform.Android.AppCompat.FrameRenderer;

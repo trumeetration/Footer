@@ -43,6 +43,8 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+	<AndroidSdkBuildToolsVersion>28.0.3</AndroidSdkBuildToolsVersion>
+	<AndroidUseApkSigner>true</AndroidUseApkSigner>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
