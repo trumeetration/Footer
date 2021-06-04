@@ -21,7 +21,9 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame HasShadow="False">
+                            <Frame HasShadow="False"
+                                   Margin="0"
+                                   Padding="10">
                                 <StackLayout Orientation="Vertical"
                                              HorizontalOptions="Center">
                                     <Image Source="AvatarCat.png"
@@ -50,7 +52,9 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame HasShadow="False">
+                            <Frame HasShadow="False"
+                                   Margin="0"
+                                   Padding="10">
                                 <StackLayout Orientation="Vertical"
                                              HorizontalOptions="Center">
                                     <Image Source="AvatarCat.png"
