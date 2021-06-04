@@ -16,6 +16,7 @@ namespace Footer.ViewModels
         private bool _isloginvisible = true;
         private bool _isregvisible = false;
         private bool _isrecoveryvisible = false;
+        private bool _isLanguageVisible = false;
 
         public IUser User => App.CurrentUser;
 
@@ -62,6 +63,28 @@ namespace Footer.ViewModels
                     OnPropertyChanged(nameof(IsRecoveryVisible));
                 }
             }
+        }
+
+        public bool isLanguageVisible
+        {
+            get => _isLanguageVisible;
+            set
+            {
+                if (_isLanguageVisible != value)
+                {
+                    _isLanguageVisible = value;
+                    OnPropertyChanged(nameof(isLanguageVisible));
+                }
+            }
+        }
+
+        public ICommand ShowLanguage
+        {
+            get => new Command(() =>
+            {
+                if (isLanguageVisible) isLanguageVisible = false;
+                else isLanguageVisible = true;
+            });
         }
 
         public ICommand ShowLoginForm

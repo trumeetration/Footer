@@ -6,12 +6,15 @@
     <StackLayout>
         <Frame 
             HorizontalOptions="Center"
-            BorderColor="#7E58CF"
             HeightRequest = "130"
             WidthRequest = "130"
             CornerRadius = "100"
             Margin = "0, 50, 0, 0"
-            >
+            Padding="0">
+            <Image 
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                Source="AvatarCat.png"></Image>
         </Frame>
         <Label
             HorizontalOptions="Center"

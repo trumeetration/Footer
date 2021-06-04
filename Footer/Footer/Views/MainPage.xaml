@@ -158,6 +158,52 @@
                     <tabItemsContents:SettingsPage />
                 </xct:TabViewItem>
             </xct:TabView>
+            <Frame BackgroundColor="#55000000"
+                   IsVisible="{Binding isLanguageVisible}">
+                <Frame HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Padding="20,40,20,40">
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 WidthRequest="Infinity">
+                        <Label VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="18"
+                            Padding="0,0,0,20"
+                            >Choose language:</Label>
+                        <Frame VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Padding="50,10,50,10"
+                               HasShadow="False"
+                               BorderColor="#045AFF"
+                               WidthRequest="100">
+                            <Label VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Text="English"
+                                   Padding="0"
+                                   TextColor="#045AFF"
+                                   FontSize="18"></Label>
+                        </Frame>
+                        <Frame VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Padding="50,10,50,10"
+                               HasShadow="False"
+                               BorderColor="#DB1212"
+                               WidthRequest="100">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowLanguage}"></TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+                            <Label VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Text="Cancel"
+                                   Padding="0"
+                                   TextColor="#DB1212"
+                                   FontSize="18"></Label>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </Frame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
