@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.Runtime;
 using Android.OS;
+using Android.Widget;
 
 namespace Footer.Droid
 {
@@ -17,6 +18,13 @@ namespace Footer.Droid
             Window.SetStatusBarColor(Color.ParseColor("#3EC1D3"));
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Xamarin.Forms.DependencyService.Register<StepCounter>();
+            if (Application.Context.PackageManager.HasSystemFeature(Android.Content.PM.PackageManager
+                .FeatureSensorStepCounter) &&
+                       Application.Context.PackageManager.HasSystemFeature(Android.Content.PM.PackageManager.FeatureSensorStepDetector))
+                Toast.MakeText(Application.Context, "SENSOR WORKS", ToastLength.Long).Show();
+            else
+                Toast.MakeText(Application.Context, "ALARMAARLASJSSADSAD", ToastLength.Long).Show();
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

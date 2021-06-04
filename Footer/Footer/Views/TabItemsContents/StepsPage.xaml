@@ -22,7 +22,7 @@
                          Padding="0,40">
                 <Label HorizontalOptions="Center"
                        VerticalOptions="Start"
-                       FontSize="60" Text="{Binding User.Nickname}" />
+                       FontSize="60" Text="{Binding StepsCountField}" />
                 <Label HorizontalOptions="Center"
                        VerticalOptions="EndAndExpand"
                        FontSize="Title">

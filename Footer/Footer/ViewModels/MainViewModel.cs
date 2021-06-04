@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Footer.Interfaces;
 using Footer.Models;
@@ -22,6 +23,14 @@ namespace Footer.ViewModels
         public MainViewModel()
         {
             Title = "Login";
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+                Task.Run(async () =>
+                {
+                    StepsCountField = DependencyService.Get<IStepCounter>().Steps.ToString();
+                });
+                return true;
+            });
         }
 
         private string _nicknameField;
@@ -69,6 +78,19 @@ namespace Footer.ViewModels
                 if (_newNicknameField != value)
                     _newNicknameField = value;
                 OnPropertyChanged(nameof(NewNicknameField));
+            }
+        }
+
+        private string _stepsCountField;
+
+        public string StepsCountField
+        {
+            get => _stepsCountField;
+            set
+            {
+                if (_stepsCountField != value)
+                    _stepsCountField = value;
+                OnPropertyChanged(nameof(StepsCountField)); // DependencyService.Get<IStepCounter>().Steps.ToString()
             }
         }
 
