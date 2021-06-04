@@ -71,18 +71,20 @@ namespace Footer.ViewModels
         }
 
         private string _newNicknameField;
-        public string NewNicknameField {
-        get => _newNicknameField;
 
-        set
+        public string NewNicknameField
         {
-            if (_newNicknameField != value)
-                _newNicknameField = value;
-            OnPropertyChanged(nameof(NewNicknameField));
-        }
-    }
+            get => _newNicknameField;
 
-    public bool isLanguageVisible
+            set
+            {
+                if (_newNicknameField != value)
+                    _newNicknameField = value;
+                OnPropertyChanged(nameof(NewNicknameField));
+            }
+        }
+
+        public bool isLanguageVisible
         {
             get => _isLanguageVisible;
             set
@@ -95,10 +97,6 @@ namespace Footer.ViewModels
             }
         }
 
-        
-
-        
-    
 
         private string _stepsCountField;
 
@@ -113,7 +111,6 @@ namespace Footer.ViewModels
             }
         }
 
-        
 
         public ICommand ChangeUserDataCommand
         {
@@ -125,6 +122,5 @@ namespace Footer.ViewModels
                 }
             });
         }
-
     }
 }
